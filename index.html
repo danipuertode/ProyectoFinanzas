@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control de Finanzas Personales</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Panel de Control de Finanzas Personales</h1>
+    </header>
+
+    <main>
+        <section id="form-section">
+            <h2>Registrar Transacción</h2>
+            <form id="transaction-form">
+                <label for="type">Tipo:</label>
+                <select id="type" name="type" required>
+                    <option value="ingreso">Ingreso</option>
+                    <option value="gasto">Gasto</option>
+                </select>
+
+                <label for="category">Categoría:</label>
+                <input type="text" id="category" name="category" placeholder="Ej. Comida, Transporte" required>
+
+                <label for="amount">Monto:</label>
+                <input type="number" id="amount" name="amount" placeholder="Ej. 1000" required>
+
+                <button type="submit">Agregar</button>
+            </form>
+        </section>
+
+        <section id="table-section">
+            <h2>Tabla de Ingresos y Gastos</h2>
+            <table id="transaction-table">
+                <thead>
+                    <tr>
+                        <th data-sort="type">Tipo</th>
+                        <th data-sort="category">Categoría</th>
+                        <th data-sort="amount">Monto</th>
+                        <th data-sort="date">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas de transacciones se agregarán dinámicamente aquí -->
+                </tbody>
+            </table>
+            <div id="totals" style="display: none;">
+                <p><strong>Total Ingresos:</strong> <span id="total-ingresos">0</span> €</p>
+                <p><strong>Total Gastos:</strong> <span id="total-gastos">0</span> €</p>
+                <p><strong>Balance Total:</strong> <span id="balance-total">0</span> €</p>
+            </div>
+        </section>
+
+        <section id="chart-section">
+            <h2>Resumen</h2>
+            <canvas id="finance-chart"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; dani.puerto.dev@gmail.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
